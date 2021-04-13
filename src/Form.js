@@ -1,11 +1,11 @@
 import React from 'react';
-import Display from './Display';
 
 export default class Form extends React.Component {
   state = {
     firstName: '',
     lastName: '',
     userName: '',
+    endValue: '',
   };
 
   changeName = (e) => {
@@ -28,10 +28,45 @@ export default class Form extends React.Component {
   };
 
   onSubmit = (e) => {
-    console.log('e', e);
-    console.log('name', this.state.firstName);
-    console.log('lastname', this.state.lastName);
-    console.log('user', this.state.userName);
+    console.log('this.state.last', this.state.firstName);
+    console.log('this.state.last', this.state.lastName);
+
+    let tempFirstName = Number(this.state.firstName);
+    let tempUserName = Number(this.state.userName);
+
+    e.preventDefault();
+
+    switch (this.state.lastName) {
+      case '+':
+        console.log('at +', tempFirstName, tempUserName);
+        this.setState({
+          endValue: tempFirstName + tempUserName,
+        });
+        break;
+      case '-':
+        console.log('at -', tempFirstName, tempUserName);
+        this.setState({
+          endValue: tempFirstName - tempUserName,
+        });
+        break;
+      case '*':
+        console.log('at *', tempFirstName, tempUserName);
+        this.setState({
+          endValue: tempFirstName * tempUserName,
+        });
+        break;
+      case '/':
+        console.log('at /', tempFirstName, tempUserName);
+        this.setState({
+          endValue: tempFirstName / tempUserName,
+        });
+        break;
+      default:
+        this.setState({
+          endValue: 'virhe',
+        });
+        break;
+    }
   };
 
   render() {
@@ -41,33 +76,34 @@ export default class Form extends React.Component {
           <form>
             <input
               name="firstName"
-              placeholder="First name"
+              placeholder="Value"
               value={this.state.firstName}
               onChange={(e) => this.changeName(e)}
             />
             <br />
             <input
               name="lastName"
-              placeholder="Last name"
+              placeholder="Operation (+-*/)"
               value={this.state.lastName}
               onChange={(e) => this.changeLast(e)}
             />
             <br />
             <input
               name="username"
-              placeholder="Username"
+              placeholder="Value"
               value={this.state.userName}
               onChange={(e) => this.changeUser(e)}
             />
             <br />
-            <button onClick={(e) => this.onSubmit(e)}>Submit</button>
+            <button onClick={(e) => this.onSubmit(e)}>calculate</button>
           </form>
         </div>
-        <Display
-          firstName={this.state.firstName}
-          userName={this.state.userName}
-          lastName={this.state.lastName}
-        />
+        <div>
+          <h1>{this.state.firstName}</h1>
+          <h1>{this.state.lastName}</h1>
+          <h1>{this.state.userName}</h1>
+          <h1>{this.state.endValue}</h1>
+        </div>
       </div>
     );
   }
