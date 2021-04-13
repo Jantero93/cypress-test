@@ -64,9 +64,9 @@ export default class Form extends React.Component {
           </form>
         </div>
         <Display
-          firstName={this.props.firstName}
-          userName={this.props.userName}
-          lastName={this.props.lastName}
+          firstName={this.state.firstName}
+          userName={this.state.userName}
+          lastName={this.state.lastName}
         />
       </div>
     );
