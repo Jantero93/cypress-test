@@ -28,9 +28,6 @@ export default class Form extends React.Component {
   };
 
   onSubmit = (e) => {
-    console.log('this.state.last', this.state.firstName);
-    console.log('this.state.last', this.state.lastName);
-
     let tempFirstName = Number(this.state.firstName);
     let tempUserName = Number(this.state.userName);
 
