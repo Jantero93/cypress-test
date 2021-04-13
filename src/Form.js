@@ -72,6 +72,7 @@ export default class Form extends React.Component {
         <div>
           <form>
             <input
+              id="firstName"
               name="firstName"
               placeholder="Value"
               value={this.state.firstName}
@@ -79,6 +80,7 @@ export default class Form extends React.Component {
             />
             <br />
             <input
+              id="lastName"
               name="lastName"
               placeholder="Operation (+-*/)"
               value={this.state.lastName}
@@ -86,20 +88,21 @@ export default class Form extends React.Component {
             />
             <br />
             <input
+              id="username"
               name="username"
               placeholder="Value"
               value={this.state.userName}
               onChange={(e) => this.changeUser(e)}
             />
             <br />
-            <button onClick={(e) => this.onSubmit(e)}>calculate</button>
+            <button id="button" onClick={(e) => this.onSubmit(e)}>calculate</button>
           </form>
         </div>
         <div>
-          <h1>{this.state.firstName}</h1>
-          <h1>{this.state.lastName}</h1>
-          <h1>{this.state.userName}</h1>
-          <h1>{this.state.endValue}</h1>
+          <h1 id="firstName">{this.state.firstName}</h1>
+          <h1 id="lastName">{this.state.lastName}</h1>
+          <h1 id="userName">{this.state.userName}</h1>
+          <h1 id="endValue">{this.state.endValue}</h1>
         </div>
       </div>
     );
