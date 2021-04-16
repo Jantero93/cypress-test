@@ -7,11 +7,9 @@ Library           SeleniumLibrary
 Open main page
     Open Browser	http://localhost:3000/    firefox
 Set Text Form
-# turha?    Set Focus To Element        firstName
     Input Text    firstName    4
     Input Text    lastName     +
     Input Text    username     4
-
 Click Button and check result
     Click Button   button
     Wait Until Element Is Visible    endValue
