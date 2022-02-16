@@ -1,4 +1,4 @@
-name: Turkey end-to-end tests chrome headless
+name: Cypress tests
 on: [push]
 jobs:
   cypress-run:
