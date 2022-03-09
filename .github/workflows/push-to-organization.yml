@@ -10,7 +10,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: './'
+          source-directory: './src'
           destination-github-username: '5G00BD88-3006-Innovaatioprojekti'
           destination-repository-name: 'Nelilaskin-Testi'
           user-email: testi@testi.com
