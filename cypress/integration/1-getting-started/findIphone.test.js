@@ -1,7 +1,7 @@
 describe('Find search', () => {
   beforeEach(() => {
-    cy.visit('https://www.power.fi/');
     cy.viewport(1920, 1080);
+    cy.visit('https://www.power.fi/');
   });
 
   /**
@@ -24,17 +24,17 @@ describe('Find search', () => {
     /** Get price of first item */
     cy.get('pwr-price')
       .first()
-      .then(($element) => {
-        const price = $element.text();
+      .then((element) => {
+        const price = element.text();
 
         cy.log(`first item price: ${price}`);
       });
 
-    /** Log all products in search window */
-    const phoneList = cy
-      .get('.search-product')
-      .then(($els) => Cypress.$.makeArray($els).map((el) => el.innerText));
-
-    phoneList.each((phone) => cy.log(phone));
+    /** Print all results name and price */
+    cy.get('.search-product').each((element) => {
+      const item = element.find('.product-name').text();
+      const price = element.find('pwr-price').text();
+      cy.log(`item: ${item}, price: ${price}`);
+    });
   });
 });
