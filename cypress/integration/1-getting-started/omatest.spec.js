@@ -6,7 +6,6 @@ describe('calculate basic', () => {
     const secondValue = 3;
     const answer = 4;
     const operator = '+';
-
     cy.get('#firstName').type(firstValue);
     cy.get('#lastName').type(operator);
     cy.get('#username').type(secondValue);
