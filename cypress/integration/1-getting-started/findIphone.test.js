@@ -1,9 +1,6 @@
 // type definitions for Cypress object "cy"
 /// <reference types="cypress" />
 
-/**
- * Joskus feilaa, race conditions?
- */
 describe('Find search products', () => {
   beforeEach(() => {
     cy.viewport(1920, 1080);
@@ -23,7 +20,6 @@ describe('Find search products', () => {
       .find('input')
       .first()
       .type(searchTerms)
-      .wait(1000)
       .type('{enter}');
 
     // Get price of first item
@@ -57,6 +53,10 @@ describe('Find search products', () => {
 
     cy.get('.price-block-item-container')
       .find('pwr-price')
-      .then((el) => cy.log(`iPhone 12 black price: ${el.text()}`));
+      .then((el) => {
+        const price = el.text().trim();
+        cy.log(`${searchTerms}, price: ${price}`);
+        cy.task('log', `${searchTerms}, price: ${price}`);
+      });
   });
 });
