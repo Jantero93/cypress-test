@@ -25,4 +25,8 @@ describe('calculate basic', () => {
     cy.get('#button').click();
     cy.contains('#endValue', answer);
   });
+
+  it('this fails always', () => {
+    cy.contains('sajdöklsdfklökljöfsdaköjlfsdaö');
+  });
 });
