@@ -1,5 +1,5 @@
 describe('calculate basic', () => {
-  beforeEach(() => cy.visit('http://localhost:3000'));
+  beforeEach(() => cy.visit('/'));
 
   it('sum numbers', () => {
     const firstValue = 1;

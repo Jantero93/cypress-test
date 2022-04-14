@@ -1,0 +1,13 @@
+name: Ultimate test runner inside docker
+on: [push]
+jobs:
+  docker:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Start containers
+        run: docker-compose up --abort-on-container-exit --exit-code-from e2e

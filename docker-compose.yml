@@ -1,0 +1,21 @@
+# docker-compose up --abort-on-container-exit --exit-code-from e2e
+version: '3'
+services:
+  web:
+    build: .
+    container_name: react-app
+    ports:
+      - "3000:3000"
+
+  e2e:
+    image: cypress
+    build: ./cypress
+    container_name: cypress
+    depends_on:
+      - web
+    environment:
+      - CYPRESS_baseUrl=http://react-app:3000
+    command: npx cypress run
+    volumes:
+      - ./cypress/:/app/cypress
+      - ./cypress.json:/app/cypress.json

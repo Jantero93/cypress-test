@@ -1,5 +1,5 @@
 describe('tdd test', () => {
-  beforeEach(() => cy.visit('http://localhost:3000'));
+  beforeEach(() => cy.visit('/'));
 
   it('tdd test number uno', () => {
     let max = 5;
