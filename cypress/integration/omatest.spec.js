@@ -26,7 +26,4 @@ describe('calculate basic', () => {
     cy.contains('#endValue', answer);
   });
 
-  it('this fails always', () => {
-    cy.contains('sajdöklsdfklökljöfsdaköjlfsdaö');
-  });
 });
